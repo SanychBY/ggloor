@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".DetailsOfMatch"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/img_team1"
+            android:layout_weight="1"
+            />
+        <LinearLayout
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/MatchesDataTime"
+                android:layout_gravity="top|center"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textColor="@color/colorWhiteSmoke"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/MatchesDataColGame"
+                android:layout_gravity="top|center"
+                android:textSize="20sp"
+                android:textColor="@color/colorWhiteSmoke"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/MatchesDataActiv"
+                android:layout_gravity="top|center"
+                android:textSize="20sp"
+                android:textColor="@color/colorWhiteSmoke"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/data_team1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/data_team2"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_weight="1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/img_team2"/>
+    </LinearLayout>
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tabLayout"
+        app:tabTextColor="@color/colorAccent"
+        app:tabSelectedTextColor="@color/colorWhiteSmoke">
+
+
+
+    </android.support.design.widget.TabLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gameNotStart"
+            android:text="@string/gameNotStart"
+            android:textSize="25sp"
+            android:textColor="@color/colorWhiteSmoke"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gameIsOn"
+            android:textSize="25sp"
+            android:textColor="@color/colorWhiteSmoke"
+            android:layout_gravity="center"
+            android:text="@string/gameIsOn"
+            android:visibility="gone"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:id="@+id/scoreLayout"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textSize="25sp"
+                android:textColor="@color/colorWhiteSmoke"
+                android:id="@+id/score1"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:textColor="@color/colorWhiteSmoke"
+
+                android:id="@+id/score2"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/WotchStreamButton"
+        android:visibility="gone"
+        android:id="@+id/watchStreamButton"
+        android:layout_gravity="center"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/recordingMatchStr"
+        android:visibility="gone"
+        android:id="@+id/watchRecordingMatch"
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>

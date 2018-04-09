@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">ggloor</string>
+    <string name="old">Предыдущие</string>
+    <string name="password">Пароль</string>
+    <string name="NickOrEmail">Ник или email</string>
+    <string name="Input">Вход</string>
+    <string name="nick">Nick</string>
+    <string name="e_mail">E-mail</string>
+    <string name="rep_password">Повторите пароль</string>
+    <string name="ok">OK</string>
+    <string name="error_nick_1">Только a–Z, 1–2, \"-\", \"_\" </string>
+    <string name="error_nick_2">Ник слишком короткий</string>
+    <string name="error_nick_3">Ник слишком длинный</string>
+    <string name="error_nick_4">Ник уже используется</string>
+    <string name="error_email_1">E-mail некоректный</string>
+    <string name="error_email_2">E-mail уже используется</string>
+    <string name="error_password_1">Пароли не совпадают</string>
+    <string name="error_password_2">Слишком кароткий пароль</string>
+    <string name="error_password_3">Слишком длинный пароль</string>
+    <string name="delete">Удалить</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gameNotStart">Игра еще не началась</string>
+    <string name="gameIsOn">Игра уже идет…</string>
+    <string name="WotchStreamButton">Смотреть стрим</string>
+    <string name="recordingMatchStr">Сомотреть запись</string>
+</resources>

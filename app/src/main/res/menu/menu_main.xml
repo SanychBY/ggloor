@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Кабинет"
+        android:id="@+id/room_acc"
+        android:visible="false" />
+    <item android:title="Выход"
+        android:id="@+id/exit_acc"
+        android:visible="false" />
+    <item android:title="Вход"
+        android:id="@+id/input_acc" />
+    <item android:title="Регистрация"
+        android:id="@+id/reg_acc" />
+</menu>
