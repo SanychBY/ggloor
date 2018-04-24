@@ -25,4 +25,6 @@
     <string name="gameIsOn">Игра уже идет…</string>
     <string name="WotchStreamButton">Смотреть стрим</string>
     <string name="recordingMatchStr">Сомотреть запись</string>
+    <string name="CommentsName">Комментарии:</string>
+    <string name="Text">Текст</string>
 </resources>

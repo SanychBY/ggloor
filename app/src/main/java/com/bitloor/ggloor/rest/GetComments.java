@@ -12,11 +12,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bitloor.ggloor.settings.SettingsData;
 
-public class GetMatchDetails {
-    public String data = null;
-    public String getMatches(int matchId, Context context, final Handler hendler){
+public class GetComments {
+    public String data;
+    public String getComments(int matchId, Context context, final Handler hendler){
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url = SettingsData.SITE_URL + "/Rest/GetOneMatchInfo?id=" + matchId;
+        String url = SettingsData.SITE_URL + "/Rest/GetComments?id=" + matchId;
 // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
@@ -24,7 +24,7 @@ public class GetMatchDetails {
                     public void onResponse(String response) {
                         // Display the first 500 characters of the response string.
                         data = response;
-                        Log.d("GetMatches", "onResponse: " + response);
+                        Log.d("GetComments", "onResponse: " + response);
                         hendler.sendEmptyMessage(1);
                         // mTextView.setText("Response is: "+ response.substring(0,500));
                     }
@@ -33,7 +33,7 @@ public class GetMatchDetails {
             public void onErrorResponse(VolleyError error) {
                 data = null;
                 hendler.sendEmptyMessage(2);
-                Log.d("GetMatches", "onResponse error: " + error.getMessage());
+                Log.d("GetComments", "onResponse error: " + error.getMessage());
 
             }
         });
