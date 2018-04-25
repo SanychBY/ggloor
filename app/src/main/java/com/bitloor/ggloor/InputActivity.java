@@ -10,13 +10,12 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bitloor.ggloor.helperDB.HelperDB;
+import com.bitloor.ggloor.helpers.helperDB.HelperDB;
 import com.bitloor.ggloor.soap.Input;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import pl.droidsonroids.gif.GifDrawable;
 import pl.droidsonroids.gif.GifImageView;
 
 public class InputActivity extends AppCompatActivity {

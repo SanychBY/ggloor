@@ -11,9 +11,8 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.bitloor.ggloor.helperDB.HelperDB;
+import com.bitloor.ggloor.helpers.helperDB.HelperDB;
 import com.bitloor.ggloor.model.Likes;
-import com.bitloor.ggloor.model.Matches;
 import com.bitloor.ggloor.myAdapters.LikesAdapter;
 import com.bitloor.ggloor.rest.GetLikes;
 import com.google.gson.Gson;

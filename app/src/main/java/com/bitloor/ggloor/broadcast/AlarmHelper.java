@@ -12,7 +12,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 
-import com.bitloor.ggloor.helperDB.HelperDB;
+import com.bitloor.ggloor.helpers.helperDB.HelperDB;
 import com.bitloor.ggloor.model.Likes;
 import com.bitloor.ggloor.model.Matches;
 import com.bitloor.ggloor.model.Teams;

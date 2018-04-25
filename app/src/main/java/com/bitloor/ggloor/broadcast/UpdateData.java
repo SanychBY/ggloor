@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.bitloor.ggloor.helperDB.HelperDB;
+import com.bitloor.ggloor.helpers.helperDB.HelperDB;
 
 public class UpdateData extends Service {
 

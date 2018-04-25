@@ -12,17 +12,16 @@ import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bitloor.ggloor.helperDB.HelperDB;
+import com.bitloor.ggloor.helpers.helperDB.HelperDB;
+import com.bitloor.ggloor.helpers.listViewScrollHelper.ListViewScrollHelper;
 import com.bitloor.ggloor.model.Comments;
 import com.bitloor.ggloor.model.Game;
 import com.bitloor.ggloor.myAdapters.CommentsAdapter;
@@ -40,9 +39,7 @@ import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 public class DetailsOfMatch extends AppCompatActivity {
     GetMatchDetails getMatchDetails;
@@ -97,32 +94,7 @@ public class DetailsOfMatch extends AppCompatActivity {
         });
     }
 
-    /**** Method for Setting the Height of the ListView dynamically.
-     **** Hack to fix the issue of not showing all the items of the ListView
-     **** when placed inside a ScrollView  ****/
-    public void setListViewHeightBasedOnChildren(ListView listView) {
-        ListAdapter listAdapter = listView.getAdapter();
-        if (listAdapter == null){
-            CommentsAdapter commentsAdapter = new CommentsAdapter(getApplicationContext(), comments, dbC);
-            commentsListView.setAdapter(commentsAdapter);
-            listAdapter = commentsAdapter;
-        }
 
-        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.UNSPECIFIED);
-        int totalHeight = 0;
-        View view = null;
-        for (int i = 0; i < listAdapter.getCount(); i++) {
-            view = listAdapter.getView(i, view, listView);
-            if (i == 0)
-                view.setLayoutParams(new ViewGroup.LayoutParams(desiredWidth, ViewGroup.LayoutParams.WRAP_CONTENT));
-
-            view.measure(View.MeasureSpec.makeMeasureSpec(desiredWidth, View.MeasureSpec.AT_MOST), View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
-            totalHeight += view.getMeasuredHeight();
-        }
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-        listView.setLayoutParams(params);
-    }
 
     private void updatemMatchDetails(){
         img1 = (ImageView)findViewById(R.id.img_team1);
@@ -212,7 +184,8 @@ public class DetailsOfMatch extends AppCompatActivity {
                         Log.d("updateComments", "handleMessage: create adapter " +  comments.size() + comments.get(0).user.nick);
                         CommentsAdapter commentsAdapter = new CommentsAdapter(getApplicationContext(), comments, dbC);
                         commentsListView.setAdapter(commentsAdapter);
-                        setListViewHeightBasedOnChildren(commentsListView);
+                        ListViewScrollHelper  listViewScrollHelper = new ListViewScrollHelper();
+                        listViewScrollHelper.setListViewHeightBasedOnChildren(commentsListView);
                     }
                 }
             }
@@ -284,6 +257,9 @@ public class DetailsOfMatch extends AppCompatActivity {
                         if(commentSend.data != null && commentSend.data.equals("ok")){
                             updateComments();
                             Toast.makeText(DetailsOfMatch.this, "Комментарий добавлен", Toast.LENGTH_SHORT).show();
+                            commentEditText.setText("");
+                        }else {
+                            Toast.makeText(DetailsOfMatch.this, "Error", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

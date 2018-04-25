@@ -9,22 +9,16 @@ import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.view.menu.MenuView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.AbsListView;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bitloor.ggloor.broadcast.AlarmHelper;
-import com.bitloor.ggloor.broadcast.NotificationHelper;
 import com.bitloor.ggloor.broadcast.UpdateData;
-import com.bitloor.ggloor.helperDB.HelperDB;
+import com.bitloor.ggloor.helpers.helperDB.HelperDB;
 import com.bitloor.ggloor.model.Matches;
 import com.bitloor.ggloor.model.Teams;
 import com.bitloor.ggloor.myAdapters.MatchesAdapter;
@@ -36,7 +30,6 @@ import com.google.gson.reflect.TypeToken;
 
 
 import java.lang.reflect.Type;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package com.bitloor.ggloor.helperDB;
+package com.bitloor.ggloor.helpers.helperDB;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
