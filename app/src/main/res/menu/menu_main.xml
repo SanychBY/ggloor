@@ -5,6 +5,9 @@
     <item android:title="Кабинет"
         android:id="@+id/room_acc"
         android:visible="false" />
+    <item android:title="Настройки"
+        android:id="@+id/settings_acc"
+        android:visible="false"/>
     <item android:title="Выход"
         android:id="@+id/exit_acc"
         android:visible="false" />

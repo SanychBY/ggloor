@@ -18,6 +18,7 @@
     <string name="error_password_2">Слишком кароткий пароль</string>
     <string name="error_password_3">Слишком длинный пароль</string>
     <string name="delete">Удалить</string>
+    <integer name="com_vk_sdk_AppId">6474972</integer>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -27,4 +28,13 @@
     <string name="recordingMatchStr">Сомотреть запись</string>
     <string name="CommentsName">Комментарии:</string>
     <string name="Text">Текст</string>
+    <string name="ip">ip</string>
+    <string name="save_ip">Save ip</string>
+    <string name="min_10">10 минут</string>
+    <string name="h_1">1 час</string>
+    <string name="h_12">12 часов</string>
+    <string name="d_1">1 день</string>
+    <string name="notify_vk_bot">Уведомлять сообщениями в вк</string>
+    <string name="input_vk_in">Войти через ВК</string>
+    <string name="inpit_in_vk_text">Войдите в Ваш аккаун ВКонтакте, чтобы получать уведомления от нашего бота.</string>
 </resources>

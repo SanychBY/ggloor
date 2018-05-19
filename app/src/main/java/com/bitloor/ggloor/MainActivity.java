@@ -27,6 +27,7 @@ import com.bitloor.ggloor.settings.SettingsData;
 import com.bitloor.ggloor.soap.AuthTest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.vk.sdk.util.VKUtil;
 
 
 import java.lang.reflect.Type;
@@ -77,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.room_acc:
                 startActivity(new Intent(this, LikesActivity.class));
+                return true;
+            case R.id.settings_acc:
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -140,6 +145,7 @@ public class MainActivity extends AppCompatActivity {
                         menu.findItem(R.id.input_acc).setVisible(false);
                         menu.findItem(R.id.reg_acc).setVisible(false);
                         menu.findItem(R.id.room_acc).setVisible(true);
+                        menu.findItem(R.id.settings_acc).setVisible(true);
                         menu.findItem(R.id.exit_acc).setVisible(true);
                     }else {
                         if(authTest.data != null && authTest.data.equals("0")) {
@@ -148,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
                         menu.findItem(R.id.input_acc).setVisible(true);
                         menu.findItem(R.id.reg_acc).setVisible(true);
                         menu.findItem(R.id.room_acc).setVisible(false);
+                        menu.findItem(R.id.settings_acc).setVisible(false);
                         menu.findItem(R.id.exit_acc).setVisible(false);
                     }
                 }
@@ -157,6 +164,7 @@ public class MainActivity extends AppCompatActivity {
             menu.findItem(R.id.input_acc).setVisible(true);
             menu.findItem(R.id.reg_acc).setVisible(true);
             menu.findItem(R.id.room_acc).setVisible(false);
+            menu.findItem(R.id.settings_acc).setVisible(false);
             menu.findItem(R.id.exit_acc).setVisible(false);
         }
         c.close();
