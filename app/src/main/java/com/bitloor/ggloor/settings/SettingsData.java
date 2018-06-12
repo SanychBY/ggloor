@@ -5,7 +5,7 @@ package com.bitloor.ggloor.settings;
  **/
 
 public final class SettingsData {
-    public static final String SITE_URL = "http://192.168.100.4:8080";
-    public static final String SOAP_URL = "http://192.168.100.4:9999";
+    public static String SITE_URL = "http://192.168.43.48:8080";
+    public static String SOAP_URL = "http://192.168.43.48:9999";
     public static int page = 1;
 }

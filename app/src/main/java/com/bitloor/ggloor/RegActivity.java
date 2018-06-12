@@ -11,8 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bitloor.ggloor.rest.Reg;
 import com.bitloor.ggloor.settings.RegExHelper;
-import com.bitloor.ggloor.soap.Reg;
 
 import org.w3c.dom.Text;
 
@@ -89,23 +89,23 @@ public class RegActivity extends AppCompatActivity {
         if(flag){
             reg = new Reg();
             gif.setVisibility(View.VISIBLE);
-            reg.h = new Handler(){
+            Handler h = new Handler(){
                 @Override
                 public void handleMessage(Message msg) {
-                    if(reg.result != null){
+                    if(reg.data != null){
                         boolean _flag = true;
-                        if(reg.result.equals("2"))
+                        if(reg.data.equals("2"))
                         {
                             _flag = false;
                             errorNick.setText(R.string.error_nick_4);
                             errorNick.setVisibility(View.VISIBLE);
                         }
-                        if(reg.result.equals("4")){
+                        if(reg.data.equals("4")){
                             _flag = false;
                             errorNick.setText(R.string.error_nick_4);
                             errorNick.setVisibility(View.VISIBLE);
                         }
-                        if(reg.result.equals("ok")){
+                        if(reg.data.equals("ok")){
                             Log.d("ggloor_msg", "handleMessage: OK");
                             LinearLayout llForm = (LinearLayout)findViewById(R.id.reg_form);
                             llForm.setVisibility(View.GONE);
@@ -122,7 +122,7 @@ public class RegActivity extends AppCompatActivity {
                     gif.setVisibility(View.GONE);
                 }
             };
-            reg.execute(nick, email, password, repPassword);
+            reg.reg(nick, email, password, repPassword, this, h);
         }
     }
 }

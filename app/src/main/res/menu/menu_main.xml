@@ -15,4 +15,6 @@
         android:id="@+id/input_acc" />
     <item android:title="Регистрация"
         android:id="@+id/reg_acc" />
+    <item android:title="IP"
+        android:id="@+id/ip_edit" />
 </menu>

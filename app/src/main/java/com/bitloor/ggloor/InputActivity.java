@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bitloor.ggloor.helpers.helperDB.HelperDB;
-import com.bitloor.ggloor.soap.Input;
+import com.bitloor.ggloor.rest.Input;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -40,20 +40,20 @@ public class InputActivity extends AppCompatActivity {
         gif.setVisibility(View.VISIBLE);
         Log.d("ggloor_msg", "onInputGo: ef");
         final Input input = new Input();
-        input.h = new Handler(){
+        Handler h = new Handler(){
             public void handleMessage(android.os.Message msg){
                 gif.setVisibility(View.GONE);
-                Log.d("ggloor_msg", "handleMessage: result " + input.result);
-                if(input.result != null){
-                    if(input.result.equals("0")){
+                Log.d("ggloor_msg", "handleMessage: result " + input.data);
+                if(input.data != null){
+                    if(input.data.equals("0")){
                         Toast.makeText(InputActivity.this, "Неверное имя пользователя или пароль", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    if(input.result.equals("1")){
+                    if(input.data.equals("1")){
                         Toast.makeText(InputActivity.this, "Аккаунт не активирован", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    dbC.execSQL("insert into Login (key, dateIn) values (?,?)", new String[]{input.result,  new SimpleDateFormat().format(new Date())});
+                    dbC.execSQL("insert into Login (key, dateIn) values (?,?)", new String[]{input.data,  new SimpleDateFormat().format(new Date())});
                     Toast.makeText(InputActivity.this, "Успешный вход", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 }else {
@@ -61,7 +61,7 @@ public class InputActivity extends AppCompatActivity {
                 }
             }
         };
-        input.execute(nickText.getText().toString(),passwordText.getText().toString());
+        input.input(nickText.getText().toString(),passwordText.getText().toString(), this, h);
         //input.exInput("nick","rtnxeg1012");
     }
 }

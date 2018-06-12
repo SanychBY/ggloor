@@ -11,48 +11,79 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@color/colorBackground">
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="@string/ip"/>
-    <Button
+    <pl.droidsonroids.gif.GifImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/save_ip"
-        android:onClick="SaveIpClick"/>
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RadioButton
+        android:src="@drawable/triangle"
+        android:layout_gravity="top|center"
+        android:id="@+id/gif_load"/>
+    <ScrollView
+        android:id="@+id/myview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        >
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rg"
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/min_10"
+                android:textSize="25sp"
+                android:checked="true"
+                android:id="@+id/rb10min"
+                android:textColor="@color/colorWhiteSmoke"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/h_1"
+                android:textSize="25sp"
+                android:id="@+id/rb1h"
+                android:textColor="@color/colorWhiteSmoke"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/h_12"
+                android:textSize="25sp"
+                android:id="@+id/rb12h"
+                android:textColor="@color/colorWhiteSmoke"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/d_1"
+                android:textSize="25sp"
+                android:id="@+id/rb1d"
+                android:textColor="@color/colorWhiteSmoke"/>
+        </RadioGroup>
+
+        <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/min_10"/>
-        <RadioButton
+            android:checked="true"
+            android:text="@string/notify_vk_bot"
+            android:textColor="@color/colorWhiteSmoke"
+            android:textSize="25sp" />
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/h_1"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/h_12"/>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/d_1"/>
-    </RadioGroup>
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/notify_vk_bot"
-        android:checked="true"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/inpit_in_vk_text"/>
-   <Button
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="@string/input_vk_in"
-       android:onClick="VKSignIn"/>
+            android:textSize="25sp"
+            android:textColor="@color/colorWhiteSmoke"
+            android:text="@string/inpit_in_vk_text"/>
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/input_vk_in"
+           android:onClick="VKSignIn"
+           android:background="@color/colorAccent"
+           android:padding="10dp"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

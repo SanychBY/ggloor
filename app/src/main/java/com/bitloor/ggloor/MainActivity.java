@@ -22,12 +22,12 @@ import com.bitloor.ggloor.helpers.helperDB.HelperDB;
 import com.bitloor.ggloor.model.Matches;
 import com.bitloor.ggloor.model.Teams;
 import com.bitloor.ggloor.myAdapters.MatchesAdapter;
+import com.bitloor.ggloor.rest.AuthTest;
 import com.bitloor.ggloor.rest.GetMatches;
 import com.bitloor.ggloor.settings.SettingsData;
-import com.bitloor.ggloor.soap.AuthTest;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.vk.sdk.util.VKUtil;
 
 
 import java.lang.reflect.Type;
@@ -81,6 +81,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.settings_acc:
                 startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+            case R.id.ip_edit:
+                startActivity(new Intent(this, IPActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -138,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
         Cursor c = dbC.rawQuery("select * from Login", null);
         if(c.moveToFirst()){
             final AuthTest authTest = new AuthTest();
-            authTest.h = new Handler(){
+            Handler h = new Handler(){
                 @Override
                 public void handleMessage(Message msg) {
                     if(authTest.data != null && authTest.data.equals("1")){
@@ -159,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             };
-            authTest.execute(c.getString(1));
+            authTest.authTest(c.getString(1), this, h);
         }else {
             menu.findItem(R.id.input_acc).setVisible(true);
             menu.findItem(R.id.reg_acc).setVisible(true);
