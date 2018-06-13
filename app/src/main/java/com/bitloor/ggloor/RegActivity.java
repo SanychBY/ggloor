@@ -123,6 +123,7 @@ public class RegActivity extends AppCompatActivity {
                 }
             };
             reg.reg(nick, email, password, repPassword, this, h);
+            Toast.makeText(this, "Подождите...", Toast.LENGTH_SHORT).show();
         }
     }
 }

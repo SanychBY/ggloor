@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
@@ -62,6 +63,8 @@ public class DetailsOfMatch extends AppCompatActivity {
     HelperDB DB;
     SQLiteDatabase dbC;
     ListView commentsListView;
+    String streamUri = "http://twitch.com";
+    String recordUri = "http://youtube.com";
 
     private void loadImage(String nameImg, ImageView imageView){
         ImageLoader imageLoader = ImageLoader.getInstance();
@@ -239,9 +242,11 @@ public class DetailsOfMatch extends AppCompatActivity {
         }
         if(games.get(index).status != 2 && games.get(index).match.streamUrl != null && !games.get(index).match.streamUrl.equals("")){
             watchStreamButton.setVisibility(View.VISIBLE);
+            streamUri = games.get(index).match.streamUrl;
         }
         if(games.get(index).status == 2 && games.get(index).recordingLink != null && !games.get(index).recordingLink.equals("")){
             watchRecordingMatch.setVisibility(View.VISIBLE);
+            recordUri = games.get(index).recordingLink;
         }
     }
 
@@ -265,5 +270,17 @@ public class DetailsOfMatch extends AppCompatActivity {
                 });
             }
         }
+    }
+
+    public void onWatchStream(View view) {
+        Uri uri = Uri.parse(streamUri); // missing 'http://' will cause crashed
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+    }
+
+    public void onWatchRecord(View view) {
+        Uri uri = Uri.parse(recordUri); // missing 'http://' will cause crashed
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
     }
 }

@@ -16,5 +16,6 @@
     <item android:title="Регистрация"
         android:id="@+id/reg_acc" />
     <item android:title="IP"
-        android:id="@+id/ip_edit" />
+        android:id="@+id/ip_edit"
+        android:visible="false"/>
 </menu>
